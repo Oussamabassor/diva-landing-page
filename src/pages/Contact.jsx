@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -9,6 +10,8 @@ function Contact() {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const contactInfoRef = useScrollAnimation('animate-fade-in-up');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,82 +36,113 @@ function Contact() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-blue-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            Nous <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Contacter</span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl">
-            Nous aimerions vous entendre. Envoyez-nous un message et nous vous répondrons dès que possible.
-          </p>
+      <section className="min-h-screen bg-gradient-to-br from-white via-teal-50 to-white pt-32 pb-20 relative overflow-hidden">
+        {/* Glassmorphic animated blobs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-teal-100/40 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-float backdrop-blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-slate-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float-slow backdrop-blur-3xl"></div>
+          <div className="absolute top-1/3 left-1/3 w-80 h-80 bg-cyan-200/20 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="space-y-8">
+            <div className="inline-block animate-fade-in-up">
+              <span className="inline-block px-4 py-2 bg-teal-100/80 text-teal-700 rounded-full text-sm font-semibold backdrop-blur-sm border border-teal-200/50">
+                📧 Contactez-Nous
+              </span>
+            </div>
+            <h1 className="text-7xl md:text-8xl font-bold text-gray-900 leading-tight animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+              Parlons <span className="bg-gradient-to-r from-teal-600 to-slate-900 bg-clip-text text-transparent">Ensemble</span>
+            </h1>
+            <p className="text-2xl text-gray-600 max-w-3xl leading-relaxed animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              Nous aimerions vous entendre. Envoyez-nous un message et nous vous répondrons dès que possible.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-white relative overflow-hidden">
+        {/* Glassmorphic background decorations */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-10 w-80 h-80 bg-teal-100/30 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float backdrop-blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-slate-200/20 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float-slow backdrop-blur-3xl"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Info */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Contact Information</h2>
+            <div ref={contactInfoRef} className="animate-fade-in-up">
+              <h2 className="text-4xl font-bold text-gray-900 mb-10">Informations</h2>
 
               {/* Email */}
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl mb-6 hover:shadow-lg transition-shadow">
-                <div className="flex items-center gap-4 mb-2">
-                  <Mail className="w-8 h-8 text-blue-600" />
-                  <h3 className="text-lg font-semibold text-gray-900">Email</h3>
+              <div className="group relative mb-6 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                <div className="relative bg-white/80 backdrop-blur-xl border border-teal-100 hover:border-teal-300 p-8 rounded-2xl transition-all duration-300 hover:shadow-xl">
+                  <div className="bg-gradient-to-br from-teal-50 to-teal-100 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
+                    <Mail className="w-6 h-6 text-teal-600" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">Email</h3>
+                  <p className="text-gray-600 font-medium">
+                    <a href="mailto:info@divaeasy.com" className="hover:text-teal-600 transition-colors">
+                      info@divaeasy.com
+                    </a>
+                  </p>
+                  <p className="text-sm text-gray-500 mt-2">Réponse sous 24h</p>
                 </div>
-                <p className="text-gray-600">
-                  <a href="mailto:info@divaeasy.com" className="hover:text-blue-600 transition-colors">
-                    info@divaeasy.com
-                  </a>
-                </p>
-                <p className="text-sm text-gray-500 mt-2">Nous répondrons dans les 24 heures</p>
               </div>
 
               {/* Phone */}
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl mb-6 hover:shadow-lg transition-shadow">
-                <div className="flex items-center gap-4 mb-2">
-                  <Phone className="w-8 h-8 text-blue-600" />
-                  <h3 className="text-lg font-semibold text-gray-900">Téléphone</h3>
+              <div className="group relative mb-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                <div className="relative bg-white/80 backdrop-blur-xl border border-teal-100 hover:border-teal-300 p-8 rounded-2xl transition-all duration-300 hover:shadow-xl">
+                  <div className="bg-gradient-to-br from-teal-50 to-teal-100 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
+                    <Phone className="w-6 h-6 text-teal-600" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">Téléphone</h3>
+                  <p className="text-gray-600 font-medium">
+                    <a href="tel:+33123456789" className="hover:text-teal-600 transition-colors">
+                      +33 1 23 45 67 89
+                    </a>
+                  </p>
+                  <p className="text-sm text-gray-500 mt-2">Lun-Ven, 9h - 18h CET</p>
                 </div>
-                <p className="text-gray-600">
-                  <a href="tel:+33123456789" className="hover:text-blue-600 transition-colors">
-                    +33 1 23 45 67 89
-                  </a>
-                </p>
-                <p className="text-sm text-gray-500 mt-2">Lun-Ven, 9h - 18h CET</p>
               </div>
 
               {/* Location */}
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl hover:shadow-lg transition-shadow">
-                <div className="flex items-center gap-4 mb-2">
-                  <MapPin className="w-8 h-8 text-blue-600" />
-                  <h3 className="text-lg font-semibold text-gray-900">Bureau</h3>
+              <div className="group relative animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                <div className="relative bg-white/80 backdrop-blur-xl border border-teal-100 hover:border-teal-300 p-8 rounded-2xl transition-all duration-300 hover:shadow-xl">
+                  <div className="bg-gradient-to-br from-teal-50 to-teal-100 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
+                    <MapPin className="w-6 h-6 text-teal-600" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">Bureau</h3>
+                  <p className="text-gray-600">
+                    123 Rue Facile<br />
+                    Paris, 75000<br />
+                    France
+                  </p>
                 </div>
-                <p className="text-gray-600">
-                  123 Rue Facile<br />
-                  Paris, 75000<br />
-                  France
-                </p>
               </div>
             </div>
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
               {isSubmitted ? (
-                <div className="bg-green-50 border-2 border-green-500 rounded-xl p-12 flex flex-col items-center justify-center min-h-96">
-                  <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Merci!</h3>
-                  <p className="text-gray-600 text-center mb-4">
+                <div className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-300 rounded-2xl p-12 flex flex-col items-center justify-center min-h-96 shadow-lg animate-fade-in-up">
+                  <div className="bg-white p-4 rounded-full mb-4 shadow-lg">
+                    <CheckCircle className="w-16 h-16 text-green-500" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-2">Merci!</h3>
+                  <p className="text-gray-600 text-center text-lg">
                     Votre message a été envoyé avec succès. Nous vous répondrons bientôt.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="bg-white">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name */}
-                  <div className="mb-6">
-                    <label htmlFor="name" className="block text-gray-900 font-semibold mb-2">
+                  <div className="animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+                    <label htmlFor="name" className="block text-gray-900 font-bold mb-3">
                       Nom Complet
                     </label>
                     <input
@@ -118,14 +152,14 @@ function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors"
+                      className="w-full px-6 py-4 border-2 border-teal-200 bg-teal-50/50 backdrop-blur-sm rounded-xl focus:border-teal-500 focus:bg-white focus:outline-none transition-all duration-200"
                       placeholder="Jean Dupont"
                     />
                   </div>
 
                   {/* Email */}
-                  <div className="mb-6">
-                    <label htmlFor="email" className="block text-gray-900 font-semibold mb-2">
+                  <div className="animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                    <label htmlFor="email" className="block text-gray-900 font-bold mb-3">
                       Adresse Email
                     </label>
                     <input
@@ -135,14 +169,14 @@ function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors"
+                      className="w-full px-6 py-4 border-2 border-teal-200 bg-teal-50/50 backdrop-blur-sm rounded-xl focus:border-teal-500 focus:bg-white focus:outline-none transition-all duration-200"
                       placeholder="jean@exemple.com"
                     />
                   </div>
 
                   {/* Subject */}
-                  <div className="mb-6">
-                    <label htmlFor="subject" className="block text-gray-900 font-semibold mb-2">
+                  <div className="animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+                    <label htmlFor="subject" className="block text-gray-900 font-bold mb-3">
                       Sujet
                     </label>
                     <input
@@ -152,14 +186,14 @@ function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors"
+                      className="w-full px-6 py-4 border-2 border-teal-200 bg-teal-50/50 backdrop-blur-sm rounded-xl focus:border-teal-500 focus:bg-white focus:outline-none transition-all duration-200"
                       placeholder="Comment pouvons-nous vous aider?"
                     />
                   </div>
 
                   {/* Message */}
-                  <div className="mb-8">
-                    <label htmlFor="message" className="block text-gray-900 font-semibold mb-2">
+                  <div className="animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+                    <label htmlFor="message" className="block text-gray-900 font-bold mb-3">
                       Message
                     </label>
                     <textarea
@@ -169,7 +203,7 @@ function Contact() {
                       onChange={handleChange}
                       required
                       rows="6"
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors resize-none"
+                      className="w-full px-6 py-4 border-2 border-teal-200 bg-teal-50/50 backdrop-blur-sm rounded-xl focus:border-teal-500 focus:bg-white focus:outline-none transition-all duration-200 resize-none"
                       placeholder="Votre message ici..."
                     ></textarea>
                   </div>
@@ -177,9 +211,9 @@ function Contact() {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+                    className="w-full bg-gradient-to-r from-teal-500 to-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:shadow-2xl transform hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2 text-lg animate-fade-in-up" style={{animationDelay: '0.5s'}}
                   >
-                    <Send className="w-5 h-5" />
+                    <Send className="w-6 h-6" />
                     Envoyer le Message
                   </button>
                 </form>
@@ -190,54 +224,74 @@ function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-blue-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
-            Questions Fréquemment Posées
-          </h2>
-          <p className="text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto">
-            Vous ne trouvez pas ce que vous cherchez? Consultez notre section FAQ.
-          </p>
+      <section className="py-24 bg-gradient-to-br from-teal-50 via-white to-slate-50 relative overflow-hidden">
+        {/* Glassmorphic background decorations */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-40 left-20 w-80 h-80 bg-teal-100/30 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float backdrop-blur-3xl"></div>
+          <div className="absolute bottom-0 -right-40 w-96 h-96 bg-slate-200/20 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float-slow backdrop-blur-3xl"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20 animate-fade-in-up">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              Questions Fréquentes
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Vous ne trouvez pas ce que vous cherchez? Consultez notre section FAQ.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* FAQ 1 */}
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Comment commencer?
-              </h3>
-              <p className="text-gray-600">
-                C'est facile! Il suffit de vous inscrire sur notre plateforme et vous aurez un accès immédiat à toutes nos fonctionnalités. Nous fournissons des matériaux d'accélération complets pour vous aider à démarrer rapidement.
-              </p>
+            <div className="group relative animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-slate-900 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-300"></div>
+              <div className="relative bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-teal-100 hover:border-teal-300 transition-all duration-300 hover:shadow-xl">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Comment commencer?
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  C'est facile! Il suffit de vous inscrire et vous aurez un accès immédiat. Nous fournissons des matériaux complets pour vous aider à démarrer rapidement.
+                </p>
+              </div>
             </div>
 
             {/* FAQ 2 */}
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Mes données sont-elles sécurisées?
-              </h3>
-              <p className="text-gray-600">
-                Oui, absolument. Nous utilisons des protocoles de cryptage et de sécurité de niveau entreprise pour protéger vos données. Votre confidentialité et votre sécurité sont nos priorités principales.
-              </p>
+            <div className="group relative animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-slate-900 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-300"></div>
+              <div className="relative bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-teal-100 hover:border-teal-300 transition-all duration-300 hover:shadow-xl">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Mes données sont-elles sécurisées?
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Oui, absolument. Nous utilisons des protocoles de cryptage de niveau entreprise. Votre confidentialité et votre sécurité sont nos priorités principales.
+                </p>
+              </div>
             </div>
 
             {/* FAQ 3 */}
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Quel type de support offrez-vous?
-              </h3>
-              <p className="text-gray-600">
-                Nous offrons un support client 24/7 par email et téléphone. Notre équipe d'assistance dédiée est toujours prête à vous aider pour toute question ou préoccupation.
-              </p>
+            <div className="group relative animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-slate-900 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-300"></div>
+              <div className="relative bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-teal-100 hover:border-teal-300 transition-all duration-300 hover:shadow-xl">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Quel type de support offrez-vous?
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Nous offrons un support 24/7 par email et téléphone. Notre équipe d'assistance est toujours prête à vous aider pour toute question.
+                </p>
+              </div>
             </div>
 
             {/* FAQ 4 */}
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Puis-je changer de plan?
-              </h3>
-              <p className="text-gray-600">
-                Bien sûr! Vous pouvez mettre à niveau ou réduire votre plan à tout moment. Les modifications prendront effet lors de votre prochain cycle de facturation. Pas de frais cachés ni de pénalités.
-              </p>
+            <div className="group relative animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-slate-900 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-300"></div>
+              <div className="relative bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-teal-100 hover:border-teal-300 transition-all duration-300 hover:shadow-xl">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Puis-je changer de plan?
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Bien sûr! Vous pouvez changer votre plan à tout moment. Les modifications prennent effet lors de votre prochain cycle. Pas de frais cachés.
+                </p>
+              </div>
             </div>
           </div>
         </div>

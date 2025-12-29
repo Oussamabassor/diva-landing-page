@@ -1,99 +1,149 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Shield, Users, Smartphone } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function Home() {
+  const titleRef = useScrollAnimation('animate-fade-in-up');
+  const ctaRef = useScrollAnimation('animate-fade-in-up');
+  const featuresRef = useScrollAnimation('animate-fade-in-up');
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-100 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-blue-50 to-white">
+        {/* Glassmorphic background circles */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+          {/* Large top-right circle */}
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-float backdrop-blur-3xl"></div>
+          {/* Large bottom-left circle */}
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-300/30 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float-slow backdrop-blur-3xl"></div>
+          {/* Center circle */}
+          <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-blue-100/20 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float-slower backdrop-blur-3xl"></div>
+          {/* Additional accent circles */}
+          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-cyan-300/20 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+          <div className="absolute bottom-1/3 left-1/3 w-72 h-72 bg-blue-200/20 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center z-10">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-              Diva Easy
-            </span>
-            <br />
-            <span className="text-gray-900">Votre Vie, Simplifiée</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Découvrez la solution ultime pour gérer vos tâches quotidiennes avec élégance et facilité. Transformez votre façon de travailler et de vivre.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
-              className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
-            >
-              Commencer
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              to="/about"
-              className="border-2 border-blue-500 text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200"
-            >
-              En Savoir Plus
-            </Link>
+          <div className="space-y-8">
+            <div className="inline-block animate-fade-in-up">
+              <div className="inline-block px-4 py-2 bg-teal-100/80 backdrop-blur-xl text-teal-700 rounded-full text-sm font-semibold border border-teal-200/50">
+                ✨ Bienvenue chez Diva Easy
+              </div>
+            </div>
+            
+            <h1 ref={titleRef} className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+              <span className="bg-gradient-to-r from-teal-600 via-teal-700 to-slate-900 bg-clip-text text-transparent">
+                Diva Easy
+              </span>
+              <br />
+              <span className="text-gray-900">Votre Vie, Simplifiée</span>
+            </h1>
+            
+            <p ref={ctaRef} className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              Découvrez la solution ultime pour gérer vos tâches quotidiennes avec élégance et facilité. Transformez votre façon de travailler et de vivre.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+              <Link
+                to="/contact"
+                className="bg-gradient-to-r from-teal-500 to-slate-900 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm border border-teal-400/20"
+              >
+                Commencer
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link
+                to="/qui-sommes-nous"
+                className="border-2 border-teal-500 text-teal-600 px-8 py-4 rounded-xl font-semibold hover:bg-teal-50 transition-all duration-300 backdrop-blur-sm"
+              >
+                En Savoir Plus
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Pourquoi Choisir <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Diva Easy</span>?
+      <section className="relative py-32 bg-gradient-to-br from-slate-50 via-white to-teal-50/30 overflow-hidden">
+        {/* Glassmorphic background decorations */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-10 left-1/4 w-96 h-96 bg-teal-100/20 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-float"></div>
+          <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-slate-200/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float-slow"></div>
+          <div className="absolute top-1/3 -left-40 w-72 h-72 bg-teal-100/15 rounded-full mix-blend-multiply filter blur-3xl opacity-25"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div ref={featuresRef} className="text-center mb-20 animate-fade-in-up">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              Pourquoi Choisir <span className="bg-gradient-to-r from-teal-600 to-slate-900 bg-clip-text text-transparent">Diva Easy</span>?
             </h2>
-            <p className="text-xl text-gray-600">
-              Découvrez les fonctionnalités qui font notre force
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Des fonctionnalités puissantes pensées pour simplifier votre vie et augmenter votre productivité
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Feature 1 */}
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl hover:shadow-lg transition-all duration-200 transform hover:scale-105">
-              <Zap className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Ultra Rapide</h3>
-              <p className="text-gray-600">
-                Découvrez des performances éclair qui suivent votre rythme.
-              </p>
+            <div className="group relative animate-fade-in-up h-full" style={{animationDelay: '0.1s'}}>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-slate-900 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="relative bg-white/95 backdrop-blur-xl p-8 rounded-2xl border border-teal-100/60 group-hover:border-teal-200 transition-all duration-500 h-full flex flex-col hover:shadow-xl hover:shadow-teal-500/10">
+                <div className="bg-gradient-to-br from-teal-50 to-teal-100/50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-teal-500/20 transition-all duration-300">
+                  <Zap className="w-8 h-8 text-teal-600 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Ultra Rapide</h3>
+                <p className="text-gray-600 leading-relaxed text-sm flex-grow">
+                  Découvrez des performances éclair qui suivent votre rythme et boostent votre productivité.
+                </p>
+              </div>
             </div>
 
             {/* Feature 2 */}
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl hover:shadow-lg transition-all duration-200 transform hover:scale-105">
-              <Shield className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Sécurisé & Fiable</h3>
-              <p className="text-gray-600">
-                Vos données sont protégées avec une sécurité de niveau entreprise.
-              </p>
+            <div className="group relative animate-fade-in-up h-full" style={{animationDelay: '0.15s'}}>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-slate-900 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="relative bg-white/95 backdrop-blur-xl p-8 rounded-2xl border border-teal-100/60 group-hover:border-teal-200 transition-all duration-500 h-full flex flex-col hover:shadow-xl hover:shadow-teal-500/10">
+                <div className="bg-gradient-to-br from-teal-50 to-teal-100/50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-teal-500/20 transition-all duration-300">
+                  <Shield className="w-8 h-8 text-teal-600 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Sécurisé & Fiable</h3>
+                <p className="text-gray-600 leading-relaxed text-sm flex-grow">
+                  Vos données sont protégées avec une sécurité de niveau entreprise et chiffrement de pointe.
+                </p>
+              </div>
             </div>
 
             {/* Feature 3 */}
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl hover:shadow-lg transition-all duration-200 transform hover:scale-105">
-              <Users className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Collaboration</h3>
-              <p className="text-gray-600">
-                Travaillez ensemble sans effort avec vos collègues.
-              </p>
+            <div className="group relative animate-fade-in-up h-full" style={{animationDelay: '0.2s'}}>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-slate-900 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="relative bg-white/95 backdrop-blur-xl p-8 rounded-2xl border border-teal-100/60 group-hover:border-teal-200 transition-all duration-500 h-full flex flex-col hover:shadow-xl hover:shadow-teal-500/10">
+                <div className="bg-gradient-to-br from-teal-50 to-teal-100/50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-teal-500/20 transition-all duration-300">
+                  <Users className="w-8 h-8 text-teal-600 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Collaboration</h3>
+                <p className="text-gray-600 leading-relaxed text-sm flex-grow">
+                  Travaillez ensemble en temps réel avec vos collègues, peu importe la distance.
+                </p>
+              </div>
             </div>
 
             {/* Feature 4 */}
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl hover:shadow-lg transition-all duration-200 transform hover:scale-105">
-              <Smartphone className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Mobile Ready</h3>
-              <p className="text-gray-600">
-                Accédez à votre travail de n'importe où, n'importe quand, sur tout appareil.
-              </p>
+            <div className="group relative animate-fade-in-up h-full" style={{animationDelay: '0.25s'}}>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-slate-900 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="relative bg-white/95 backdrop-blur-xl p-8 rounded-2xl border border-teal-100/60 group-hover:border-teal-200 transition-all duration-500 h-full flex flex-col hover:shadow-xl hover:shadow-teal-500/10">
+                <div className="bg-gradient-to-br from-teal-50 to-teal-100/50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-teal-500/20 transition-all duration-300">
+                  <Smartphone className="w-8 h-8 text-teal-600 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Mobile Ready</h3>
+                <p className="text-gray-600 leading-relaxed text-sm flex-grow">
+                  Accédez à votre travail de n'importe où sur tous vos appareils, n'importe quand.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-50 to-blue-100">
+      <section className="py-20 bg-gradient-to-r from-teal-50 to-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
             Prêt à Transformer Votre Vie?
@@ -103,7 +153,7 @@ function Home() {
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white px-10 py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+            className="inline-block bg-gradient-to-r from-teal-500 to-slate-900 text-white px-10 py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
           >
             Commencez Votre Voyage Aujourd'hui
           </Link>
