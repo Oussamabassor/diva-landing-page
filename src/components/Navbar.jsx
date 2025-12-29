@@ -25,7 +25,6 @@ function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-teal-100/50 dark:border-teal-900/50 shadow-sm transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -140,8 +139,7 @@ function Navbar() {
           </div>
         </div>
       )}
-      </div>
-    </nav>
+    </div>
   );
 }
 
