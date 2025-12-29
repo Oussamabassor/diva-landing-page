@@ -17,24 +17,24 @@ function Home() {
               Diva Easy
             </span>
             <br />
-            <span className="text-gray-900">Your Life, Simplified</span>
+            <span className="text-gray-900">Votre Vie, Simplifiée</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Experience the ultimate solution for managing your daily tasks with elegance and ease. Transform the way you work and live.
+            Découvrez la solution ultime pour gérer vos tâches quotidiennes avec élégance et facilité. Transformez votre façon de travailler et de vivre.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
               className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
             >
-              Get Started
+              Commencer
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               to="/about"
               className="border-2 border-blue-500 text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200"
             >
-              Learn More
+              En Savoir Plus
             </Link>
           </div>
         </div>
@@ -45,10 +45,10 @@ function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Why Choose <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Diva Easy</span>?
+              Pourquoi Choisir <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Diva Easy</span>?
             </h2>
             <p className="text-xl text-gray-600">
-              Discover the features that make us the best choice for you
+              Découvrez les fonctionnalités qui font notre force
             </p>
           </div>
 
@@ -56,18 +56,18 @@ function Home() {
             {/* Feature 1 */}
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl hover:shadow-lg transition-all duration-200 transform hover:scale-105">
               <Zap className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Lightning Fast</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Ultra Rapide</h3>
               <p className="text-gray-600">
-                Experience blazing-fast performance that keeps up with your pace.
+                Découvrez des performances éclair qui suivent votre rythme.
               </p>
             </div>
 
             {/* Feature 2 */}
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl hover:shadow-lg transition-all duration-200 transform hover:scale-105">
               <Shield className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Secure & Safe</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Sécurisé & Fiable</h3>
               <p className="text-gray-600">
-                Your data is protected with enterprise-grade security.
+                Vos données sont protégées avec une sécurité de niveau entreprise.
               </p>
             </div>
 
@@ -76,7 +76,7 @@ function Home() {
               <Users className="w-12 h-12 text-blue-600 mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Collaboration</h3>
               <p className="text-gray-600">
-                Work together seamlessly with your team members.
+                Travaillez ensemble sans effort avec vos collègues.
               </p>
             </div>
 
@@ -85,7 +85,7 @@ function Home() {
               <Smartphone className="w-12 h-12 text-blue-600 mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Mobile Ready</h3>
               <p className="text-gray-600">
-                Access your work from anywhere, anytime, on any device.
+                Accédez à votre travail de n'importe où, n'importe quand, sur tout appareil.
               </p>
             </div>
           </div>
@@ -96,16 +96,16 @@ function Home() {
       <section className="py-20 bg-gradient-to-r from-blue-50 to-blue-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Ready to Transform Your Life?
+            Prêt à Transformer Votre Vie?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Join thousands of users who have already experienced the Diva Easy difference.
+            Rejoignez des milliers d'utilisateurs qui ont déjà découvert la différence Diva Easy.
           </p>
           <Link
             to="/contact"
             className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white px-10 py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
           >
-            Start Your Journey Today
+            Commencez Votre Voyage Aujourd'hui
           </Link>
         </div>
       </section>

@@ -36,10 +36,10 @@ function Contact() {
       <section className="bg-gradient-to-br from-blue-50 to-blue-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            Get in <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Touch</span>
+            Nous <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Contacter</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl">
-            We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+            Nous aimerions vous entendre. Envoyez-nous un message et nous vous répondrons dès que possible.
           </p>
         </div>
       </section>
@@ -63,33 +63,33 @@ function Contact() {
                     info@divaeasy.com
                   </a>
                 </p>
-                <p className="text-sm text-gray-500 mt-2">We'll reply within 24 hours</p>
+                <p className="text-sm text-gray-500 mt-2">Nous répondrons dans les 24 heures</p>
               </div>
 
               {/* Phone */}
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl mb-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-4 mb-2">
                   <Phone className="w-8 h-8 text-blue-600" />
-                  <h3 className="text-lg font-semibold text-gray-900">Phone</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">Téléphone</h3>
                 </div>
                 <p className="text-gray-600">
-                  <a href="tel:+1234567890" className="hover:text-blue-600 transition-colors">
-                    +1 (234) 567-890
+                  <a href="tel:+33123456789" className="hover:text-blue-600 transition-colors">
+                    +33 1 23 45 67 89
                   </a>
                 </p>
-                <p className="text-sm text-gray-500 mt-2">Mon-Fri, 9 AM - 6 PM EST</p>
+                <p className="text-sm text-gray-500 mt-2">Lun-Ven, 9h - 18h CET</p>
               </div>
 
               {/* Location */}
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-4 mb-2">
                   <MapPin className="w-8 h-8 text-blue-600" />
-                  <h3 className="text-lg font-semibold text-gray-900">Office</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">Bureau</h3>
                 </div>
                 <p className="text-gray-600">
-                  123 Easy Street<br />
-                  Tech City, TC 12345<br />
-                  United States
+                  123 Rue Facile<br />
+                  Paris, 75000<br />
+                  France
                 </p>
               </div>
             </div>
@@ -99,9 +99,9 @@ function Contact() {
               {isSubmitted ? (
                 <div className="bg-green-50 border-2 border-green-500 rounded-xl p-12 flex flex-col items-center justify-center min-h-96">
                   <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Merci!</h3>
                   <p className="text-gray-600 text-center mb-4">
-                    Your message has been sent successfully. We'll get back to you soon.
+                    Votre message a été envoyé avec succès. Nous vous répondrons bientôt.
                   </p>
                 </div>
               ) : (
@@ -109,7 +109,7 @@ function Contact() {
                   {/* Name */}
                   <div className="mb-6">
                     <label htmlFor="name" className="block text-gray-900 font-semibold mb-2">
-                      Full Name
+                      Nom Complet
                     </label>
                     <input
                       type="text"
@@ -119,14 +119,14 @@ function Contact() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors"
-                      placeholder="John Doe"
+                      placeholder="Jean Dupont"
                     />
                   </div>
 
                   {/* Email */}
                   <div className="mb-6">
                     <label htmlFor="email" className="block text-gray-900 font-semibold mb-2">
-                      Email Address
+                      Adresse Email
                     </label>
                     <input
                       type="email"
@@ -136,14 +136,14 @@ function Contact() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors"
-                      placeholder="john@example.com"
+                      placeholder="jean@exemple.com"
                     />
                   </div>
 
                   {/* Subject */}
                   <div className="mb-6">
                     <label htmlFor="subject" className="block text-gray-900 font-semibold mb-2">
-                      Subject
+                      Sujet
                     </label>
                     <input
                       type="text"
@@ -153,7 +153,7 @@ function Contact() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors"
-                      placeholder="How can we help?"
+                      placeholder="Comment pouvons-nous vous aider?"
                     />
                   </div>
 
@@ -170,7 +170,7 @@ function Contact() {
                       required
                       rows="6"
                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors resize-none"
-                      placeholder="Your message here..."
+                      placeholder="Votre message ici..."
                     ></textarea>
                   </div>
 
@@ -180,7 +180,7 @@ function Contact() {
                     className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
                   >
                     <Send className="w-5 h-5" />
-                    Send Message
+                    Envoyer le Message
                   </button>
                 </form>
               )}
@@ -193,50 +193,50 @@ function Contact() {
       <section className="py-20 bg-gradient-to-br from-blue-50 to-blue-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
-            Frequently Asked Questions
+            Questions Fréquemment Posées
           </h2>
           <p className="text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto">
-            Can't find what you're looking for? Check our FAQ section.
+            Vous ne trouvez pas ce que vous cherchez? Consultez notre section FAQ.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* FAQ 1 */}
             <div className="bg-white p-8 rounded-xl shadow-md">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                How can I get started?
+                Comment commencer?
               </h3>
               <p className="text-gray-600">
-                Getting started is easy! Simply sign up on our platform, and you'll have immediate access to all our features. We provide comprehensive onboarding materials to help you get up and running quickly.
+                C'est facile! Il suffit de vous inscrire sur notre plateforme et vous aurez un accès immédiat à toutes nos fonctionnalités. Nous fournissons des matériaux d'accélération complets pour vous aider à démarrer rapidement.
               </p>
             </div>
 
             {/* FAQ 2 */}
             <div className="bg-white p-8 rounded-xl shadow-md">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Is my data secure?
+                Mes données sont-elles sécurisées?
               </h3>
               <p className="text-gray-600">
-                Yes, absolutely. We use enterprise-grade encryption and security protocols to protect your data. Your privacy and security are our top priorities.
+                Oui, absolument. Nous utilisons des protocoles de cryptage et de sécurité de niveau entreprise pour protéger vos données. Votre confidentialité et votre sécurité sont nos priorités principales.
               </p>
             </div>
 
             {/* FAQ 3 */}
             <div className="bg-white p-8 rounded-xl shadow-md">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                What kind of support do you offer?
+                Quel type de support offrez-vous?
               </h3>
               <p className="text-gray-600">
-                We offer 24/7 customer support via email and phone. Our dedicated support team is always ready to help you with any questions or concerns.
+                Nous offrons un support client 24/7 par email et téléphone. Notre équipe d'assistance dédiée est toujours prête à vous aider pour toute question ou préoccupation.
               </p>
             </div>
 
             {/* FAQ 4 */}
             <div className="bg-white p-8 rounded-xl shadow-md">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Can I upgrade or downgrade my plan?
+                Puis-je changer de plan?
               </h3>
               <p className="text-gray-600">
-                Of course! You can upgrade or downgrade your plan at any time. Changes will take effect in your next billing cycle. No hidden charges or penalties.
+                Bien sûr! Vous pouvez mettre à niveau ou réduire votre plan à tout moment. Les modifications prendront effet lors de votre prochain cycle de facturation. Pas de frais cachés ni de pénalités.
               </p>
             </div>
           </div>
