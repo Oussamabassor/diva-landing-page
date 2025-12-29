@@ -39,9 +39,9 @@ function Contact() {
       <section className="min-h-screen bg-gradient-to-br from-white via-teal-50 to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 pt-32 pb-20 relative overflow-hidden">
         {/* Glassmorphic animated blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-teal-100/40 dark:bg-teal-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-40 backdrop-blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-slate-200/30 dark:bg-slate-700/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 backdrop-blur-3xl"></div>
-          <div className="absolute top-1/3 left-1/3 w-80 h-80 bg-cyan-200/20 dark:bg-teal-400/10 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+          <div className="absolute top-20 left-10 w-96 h-96 bg-teal-100/40 dark:bg-teal-500/15 rounded-full mix-blend-multiply filter blur-3xl opacity-40 backdrop-blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-slate-200/30 dark:bg-teal-600/10 rounded-full mix-blend-multiply filter blur-3xl opacity-30 backdrop-blur-3xl"></div>
+          <div className="absolute top-1/3 left-1/3 w-80 h-80 bg-cyan-200/20 dark:bg-teal-500/8 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -65,8 +65,8 @@ function Contact() {
       <section className="py-24 bg-white dark:bg-slate-950 relative overflow-hidden">
         {/* Glassmorphic background decorations */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-10 w-80 h-80 bg-teal-100/30 dark:bg-teal-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-30 backdrop-blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-slate-200/20 dark:bg-slate-700/15 rounded-full mix-blend-multiply filter blur-3xl opacity-20 backdrop-blur-3xl"></div>
+          <div className="absolute top-20 left-10 w-80 h-80 bg-teal-100/30 dark:bg-teal-500/12 rounded-full mix-blend-multiply filter blur-3xl opacity-30 backdrop-blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-slate-200/20 dark:bg-teal-600/8 rounded-full mix-blend-multiply filter blur-3xl opacity-20 backdrop-blur-3xl"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -227,8 +227,8 @@ function Contact() {
       <section className="py-24 bg-gradient-to-br from-teal-50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 relative overflow-hidden">
         {/* Glassmorphic background decorations */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 left-20 w-80 h-80 bg-teal-100/30 dark:bg-teal-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-30 backdrop-blur-3xl"></div>
-          <div className="absolute bottom-0 -right-40 w-96 h-96 bg-slate-200/20 dark:bg-slate-700/20 rounded-full mix-blend-multiply filter blur-3xl opacity-20 backdrop-blur-3xl"></div>
+          <div className="absolute -top-40 left-20 w-80 h-80 bg-teal-100/30 dark:bg-teal-500/12 rounded-full mix-blend-multiply filter blur-3xl opacity-30 backdrop-blur-3xl"></div>
+          <div className="absolute bottom-0 -right-40 w-96 h-96 bg-slate-200/20 dark:bg-teal-600/8 rounded-full mix-blend-multiply filter blur-3xl opacity-20 backdrop-blur-3xl"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

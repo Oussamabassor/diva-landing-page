@@ -14,11 +14,11 @@ function Home() {
         {/* Glassmorphic background circles */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Large top-right circle */}
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-200/40 dark:bg-teal-600/20 rounded-full mix-blend-multiply filter blur-3xl opacity-40 backdrop-blur-3xl"></div>
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-200/40 dark:bg-teal-500/15 rounded-full mix-blend-multiply filter blur-3xl opacity-40 backdrop-blur-3xl"></div>
           {/* Large bottom-left circle */}
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-300/30 dark:bg-slate-700/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 backdrop-blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-300/30 dark:bg-teal-600/10 rounded-full mix-blend-multiply filter blur-3xl opacity-30 backdrop-blur-3xl"></div>
           {/* Center circle */}
-          <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-blue-100/20 dark:bg-teal-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-20 backdrop-blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-blue-100/20 dark:bg-teal-500/8 rounded-full mix-blend-multiply filter blur-3xl opacity-20 backdrop-blur-3xl"></div>
           {/* Additional accent circles */}
           <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-cyan-300/20 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
           <div className="absolute bottom-1/3 left-1/3 w-72 h-72 bg-blue-200/20 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
@@ -67,8 +67,8 @@ function Home() {
       <section className="relative py-32 bg-gradient-to-br from-slate-50 via-white to-teal-50/30 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 overflow-hidden">
         {/* Glassmorphic background decorations */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-10 left-1/4 w-96 h-96 bg-teal-100/20 dark:bg-teal-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-40"></div>
-          <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-slate-200/20 dark:bg-slate-700/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+          <div className="absolute top-10 left-1/4 w-96 h-96 bg-teal-100/20 dark:bg-teal-500/12 rounded-full mix-blend-multiply filter blur-3xl opacity-40"></div>
+          <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-slate-200/20 dark:bg-teal-600/8 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
           <div className="absolute top-1/3 -left-40 w-72 h-72 bg-teal-100/15 dark:bg-teal-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-25"></div>
         </div>
 
