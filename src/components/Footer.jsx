@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 function Footer() {
   return (
@@ -8,9 +9,14 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <h3 className="text-3xl font-bold bg-gradient-to-r from-teal-500 to-slate-900 bg-clip-text text-transparent mb-4">
-              Diva Easy
-            </h3>
+            <Link to="/" className="flex items-center gap-3 mb-6">
+              <div className="relative h-12 w-12 flex items-center justify-center">
+                <img src={logo} alt="Diva Easy Logo" className="h-full w-full object-contain" />
+              </div>
+              <span className="text-xl font-semibold text-gray-900 group-hover:text-teal-600 transition-colors duration-300 whitespace-nowrap tracking-tight">
+                Diva Easy
+              </span>
+            </Link>
             <p className="text-gray-600 leading-relaxed">
               Simplifier votre vie numérique, un pas à la fois.
             </p>
