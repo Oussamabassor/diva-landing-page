@@ -97,3 +97,60 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Performance Optimization - Reduce blur on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Disable heavy blur effects on devices with max-width 768px (tablets and below) for better performance */
+@media (max-width: 768px) {
+  /* Reduce blur intensity on mobile devices */
+  [class*="blur-3xl"] {
+    filter: blur(16px) !important;
+  }
+  [class*="backdrop-blur-3xl"] {
+    backdrop-filter: blur(8px) !important;
+  }
+  [class*="backdrop-blur-xl"] {
+    backdrop-filter: blur(6px) !important;
+  }
+  [class*="backdrop-blur-md"] {
+    backdrop-filter: blur(4px) !important;
+  }
+  [class*="backdrop-blur-sm"] {
+    backdrop-filter: blur(2px) !important;
+  }
+  
+  /* Reduce opacity of background shapes on mobile */
+  [class*="mix-blend-multiply"] {
+    mix-blend-mode: normal !important;
+    opacity: 0.5 !important;
+  }
+}
+
+/* Very low-end devices (very small screens) */
+@media (max-width: 480px) {
+  [class*="blur-3xl"] {
+    filter: blur(8px) !important;
+  }
+  [class*="backdrop-blur-3xl"] {
+    backdrop-filter: none !important;
+  }
+  [class*="backdrop-blur-xl"] {
+    backdrop-filter: none !important;
+  }
+  [class*="backdrop-blur-md"] {
+    backdrop-filter: blur(2px) !important;
+  }
+  [class*="backdrop-blur-sm"] {
+    backdrop-filter: none !important;
+  }
+}

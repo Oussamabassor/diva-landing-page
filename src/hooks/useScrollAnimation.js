@@ -14,6 +14,9 @@ export function useScrollAnimation(animationClass = 'animate-fade-in-up', once =
     const element = ref.current;
     if (!element) return;
 
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px',
@@ -22,8 +25,10 @@ export function useScrollAnimation(animationClass = 'animate-fade-in-up', once =
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Add animation class
-          entry.target.classList.add(animationClass);
+          // Add animation class only if motion is not reduced
+          if (!prefersReducedMotion) {
+            entry.target.classList.add(animationClass);
+          }
           
           // Stop observing if only animate once
           if (once) {
