@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Smooth color transitions for dark mode */
+html {
+  @apply transition-colors duration-300;
+}
+
 /* Custom Scrollbar Styling - Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   width: 10px;
@@ -10,6 +15,10 @@
 
 ::-webkit-scrollbar-track {
   background: #f8f9fa;
+}
+
+::-webkit-scrollbar-track {
+  @apply dark:bg-slate-800;
 }
 
 ::-webkit-scrollbar-thumb {
