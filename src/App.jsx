@@ -6,6 +6,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import './index.css';
 
+// diva easy
+
 function App() {
   return (
     <Router>
