@@ -25,6 +25,7 @@ function Navbar() {
   ];
 
   return (
+    <nav className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 border-b border-teal-100/50 dark:border-teal-900/50 shadow-sm transition-colors duration-300 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -64,12 +65,11 @@ function Navbar() {
           </div>
 
           {/* Tablet Menu (md:flex lg:hidden) */}
-          <div className="hidden md:flex lg:hidden">
-            <div className="flex space-x-1">
-              {navLinks.slice(0, 2).map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
+          <div className="hidden md:flex lg:hidden items-center gap-1">
+            {navLinks.slice(0, 2).map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
                 className="text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 font-medium px-2 py-2 rounded-lg transition-all duration-300 hover:bg-teal-50 dark:hover:bg-slate-800 text-xs sm:text-sm"
               >
                 {link.label.split(' ')[0]}
@@ -92,7 +92,7 @@ function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -105,41 +105,43 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - shown when isOpen is true */}
       {isOpen && (
-        <div className="lg:hidden backdrop-blur-sm bg-white/95 dark:bg-slate-900/95 border-t border-teal-100/50 dark:border-teal-900/50 max-h-96 overflow-y-auto transition-colors duration-300">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="md:hidden fixed top-16 left-0 right-0 bg-white dark:bg-slate-900 border-b border-teal-100/50 dark:border-teal-900/50 shadow-lg z-40 max-h-screen overflow-y-auto">
+          <div className="px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className="block text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 px-3 py-2 rounded-lg hover:bg-teal-50 dark:hover:bg-slate-800 font-medium transition-all duration-300"
+                className="block text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 px-4 py-3 rounded-lg hover:bg-teal-50 dark:hover:bg-slate-800 font-medium transition-all duration-300"
                 onClick={closeMenu}
               >
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={() => { toggleTheme(); closeMenu(); }}
-              className="w-full text-left px-3 py-2 rounded-lg hover:bg-teal-50 dark:hover:bg-slate-800 font-medium transition-all duration-300 flex items-center gap-2 text-gray-700 dark:text-gray-300"
-            >
-              {isDark ? (
-                <><Sun className="w-4 h-4" /> Light Mode</>
-              ) : (
-                <><Moon className="w-4 h-4" /> Dark Mode</>
-              )}
-            </button>
-            <Link
-              to="/contact"
-              className="block bg-gradient-to-r from-teal-500 to-slate-900 text-white px-3 py-2 rounded-lg hover:shadow-lg font-medium m-3 transition-all duration-300"
-              onClick={closeMenu}
-            >
-              Contact
-            </Link>
+            <div className="border-t border-teal-100/30 dark:border-teal-900/30 my-2 pt-2">
+              <button
+                onClick={() => { toggleTheme(); closeMenu(); }}
+                className="w-full text-left px-4 py-3 rounded-lg hover:bg-teal-50 dark:hover:bg-slate-800 font-medium transition-all duration-300 flex items-center gap-2 text-gray-700 dark:text-gray-300"
+              >
+                {isDark ? (
+                  <><Sun className="w-4 h-4" /> Light Mode</>
+                ) : (
+                  <><Moon className="w-4 h-4" /> Dark Mode</>
+                )}
+              </button>
+              <Link
+                to="/contact"
+                className="block bg-gradient-to-r from-teal-500 to-slate-900 text-white px-4 py-3 rounded-lg hover:shadow-lg font-medium my-2 transition-all duration-300 text-center"
+                onClick={closeMenu}
+              >
+                Contact
+              </Link>
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </nav>
   );
 }
 
