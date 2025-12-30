@@ -70,7 +70,7 @@ function Contact() {
   return (
     <div className="bg-white dark:bg-slate-950">
       {/* Hero Section with Contact Form */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-teal-50 to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 pt-32 pb-20">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-teal-50 to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 pt-16 pb-20">
         {/* Glassmorphic background circles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-teal-200/40 dark:bg-teal-500/15 rounded-full mix-blend-multiply filter blur-3xl opacity-40 backdrop-blur-3xl"></div>
