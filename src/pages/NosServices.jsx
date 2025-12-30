@@ -1,4 +1,8 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import divatoInfinity from '../assets/diva-infinity logo.png';
+import divatoWeavy from '../assets/diva-weavy logo.png';
+import apiImg from '../assets/Api-img.png';
+import mobileApp from '../assets/last-img.png';
 
 function NosServices() {
   const servicesRef = useScrollAnimation('animate-fade-in-up');
@@ -13,7 +17,9 @@ function NosServices() {
         "Adapter l'ERP aux besoins spécifiques",
         "Optimiser les processus métiers",
         "Garantir la qualité et la maintenabilité"
-      ]
+      ],
+      image: divatoInfinity,
+      imageAlt: "Divalto Infinity Logo"
     },
     {
       id: 2,
@@ -24,7 +30,9 @@ function NosServices() {
         "Intégrer des fonctionnalités avancées",
         "Adapter le CRM aux processus internes",
         "Assurer un développement fiable"
-      ]
+      ],
+      image: divatoWeavy,
+      imageAlt: "Divalto Weavy Logo"
     },
     {
       id: 3,
@@ -35,7 +43,9 @@ function NosServices() {
         "Communication avec les ERP via API",
         "Applications métier complètes",
         "Solutions sécurisées et évolutives"
-      ]
+      ],
+      image: apiImg,
+      imageAlt: "API Integration"
     },
     {
       id: 4,
@@ -46,7 +56,9 @@ function NosServices() {
         "Performances fiables et adaptées",
         "Intégration fluide avec vos systèmes",
         "Évolution et mise à jour faciles"
-      ]
+      ],
+      image: mobileApp,
+      imageAlt: "Mobile App"
     }
   ];
 
@@ -98,14 +110,25 @@ function NosServices() {
 
                 {/* Image Placeholder - Smaller for Logos/Pictures */}
                 <div className="relative">
-                  <div className="w-full h-24 bg-gradient-to-br from-teal-100 to-blue-100 dark:from-slate-700 dark:to-slate-600 rounded-lg border border-dashed border-teal-300 dark:border-teal-700 flex items-center justify-center overflow-hidden">
-                    <div className="text-center">
-                      <div className="text-3xl">📸</div>
-                      <p className="text-xs text-gray-600 dark:text-gray-400 font-medium mt-1">
-                        Image
-                      </p>
+                  {service.id <= 2 ? (
+                    // Logos for first two services - smaller display
+                    <div className="w-full h-24 bg-gradient-to-br from-teal-100 to-blue-100 dark:from-slate-700 dark:to-slate-600 rounded-lg border border-teal-200/50 dark:border-teal-700/50 flex items-center justify-center overflow-hidden p-2">
+                      <img 
+                        src={service.image} 
+                        alt={service.imageAlt}
+                        className="h-full w-auto object-contain rounded-md"
+                      />
                     </div>
-                  </div>
+                  ) : (
+                    // Images for last two services - larger, more prominent display
+                    <div className="w-full bg-gradient-to-br from-teal-50 to-blue-50 dark:from-slate-700/50 dark:to-slate-600/50 rounded-lg border border-teal-200/50 dark:border-teal-700/50 overflow-hidden p-3 flex items-center justify-center min-h-32">
+                      <img 
+                        src={service.image} 
+                        alt={service.imageAlt}
+                        className="h-auto w-full object-cover rounded-md shadow-md"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
