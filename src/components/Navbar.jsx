@@ -39,29 +39,32 @@ function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex space-x-1 items-center">
+          <div className="hidden lg:flex space-x-8 items-center">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className="text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-teal-50 dark:hover:bg-slate-800 text-sm xl:text-base"
+                className="text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 font-medium px-2 py-2 rounded-lg transition-all duration-300 hover:bg-teal-50 dark:hover:bg-slate-800 text-sm xl:text-base"
               >
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-teal-50 dark:bg-slate-800 text-teal-600 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-slate-700 transition-all duration-300 ml-2"
-              aria-label="Toggle theme"
-            >
-              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-            <Link
-              to="/contact"
-              className="bg-gradient-to-r from-teal-500 to-slate-900 text-white px-6 py-2 rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-medium ml-2 text-sm xl:text-base"
-            >
-              Contact
-            </Link>
+            <div className="h-6 w-px bg-teal-200 dark:bg-teal-800"></div>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={toggleTheme}
+                className="p-2.5 rounded-lg bg-teal-50 dark:bg-slate-800 text-teal-600 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-300 dark:focus:ring-teal-600 focus:ring-offset-2 dark:focus:ring-offset-slate-900 transition-all duration-300"
+                aria-label="Toggle theme"
+              >
+                {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </button>
+              <Link
+                to="/contact"
+                className="bg-gradient-to-r from-teal-500 to-slate-900 text-white px-6 py-2 rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-medium text-sm xl:text-base"
+              >
+                Contact
+              </Link>
+            </div>
           </div>
 
           {/* Tablet Menu (md:flex lg:hidden) */}
@@ -77,31 +80,40 @@ function Navbar() {
             ))}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-teal-50 dark:bg-slate-800 text-teal-600 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-slate-700 transition-all duration-300"
+              className="p-2 rounded-lg bg-teal-50 dark:bg-slate-800 text-teal-600 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-300 dark:focus:ring-teal-600 focus:ring-offset-2 dark:focus:ring-offset-slate-900 transition-all duration-300"
               aria-label="Toggle theme"
             >
               {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
             <Link
               to="/contact"
-              className="bg-gradient-to-r from-teal-500 to-slate-900 text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300 font-medium text-xs sm:text-sm"
+              className="bg-gradient-to-r from-teal-500 to-slate-900 text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300 font-medium ml-3 text-xs sm:text-sm"
             >
               Contact
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 rounded-lg hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? (
-              <X className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-            ) : (
-              <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-            )}
-          </button>
+          {/* Mobile Menu Button & Theme Toggle */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg bg-teal-50 dark:bg-slate-800 text-teal-600 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-300 dark:focus:ring-teal-600 focus:ring-offset-2 dark:focus:ring-offset-slate-950 transition-all duration-300"
+              aria-label="Toggle theme"
+            >
+              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
+            <button
+              className="p-2 rounded-lg hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? (
+                <X className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+              ) : (
+                <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -120,19 +132,9 @@ function Navbar() {
               </Link>
             ))}
             <div className="border-t border-teal-100/30 dark:border-teal-900/30 my-2 pt-2">
-              <button
-                onClick={() => { toggleTheme(); closeMenu(); }}
-                className="w-full text-left px-4 py-3 rounded-lg hover:bg-teal-50 dark:hover:bg-slate-800 font-medium transition-all duration-300 flex items-center gap-2 text-gray-700 dark:text-gray-300"
-              >
-                {isDark ? (
-                  <><Sun className="w-4 h-4" /> Light Mode</>
-                ) : (
-                  <><Moon className="w-4 h-4" /> Dark Mode</>
-                )}
-              </button>
               <Link
                 to="/contact"
-                className="block bg-gradient-to-r from-teal-500 to-slate-900 text-white px-4 py-3 rounded-lg hover:shadow-lg font-medium my-2 transition-all duration-300 text-center"
+                className="block bg-gradient-to-r from-teal-500 to-slate-900 text-white px-4 py-3 rounded-lg hover:shadow-lg font-medium transition-all duration-300 text-center"
                 onClick={closeMenu}
               >
                 Contact
