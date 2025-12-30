@@ -24,37 +24,38 @@ function Home() {
           <div className="absolute bottom-1/3 left-1/3 w-72 h-72 bg-blue-200/20 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center z-10">
-          <div className="space-y-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center z-10 h-full flex items-center justify-center">
+          <div className="space-y-6 w-full">
             <div className="inline-block animate-fade-in-up">
-              <div className="inline-block px-4 py-2 bg-teal-100/80 dark:bg-teal-900/40 backdrop-blur-xl text-teal-700 dark:text-teal-300 rounded-full text-sm font-semibold border border-teal-200/50 dark:border-teal-700/50">
+              <div className="inline-block px-4 py-2 bg-teal-100/80 dark:bg-teal-900/40 backdrop-blur-xl text-teal-700 dark:text-teal-300 rounded-full text-xs md:text-sm font-semibold border border-teal-200/50 dark:border-teal-700/50">
                 ✨ Bienvenue chez Diva Easy
               </div>
             </div>
             
-            <h1 ref={titleRef} className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+            <h1 ref={titleRef} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 leading-tight animate-fade-in-up" style={{animationDelay: '0.1s'}}>
               <span className="bg-gradient-to-r from-teal-600 via-teal-700 to-slate-900 dark:from-teal-400 dark:via-teal-500 dark:to-teal-600 bg-clip-text text-transparent">
                 Diva Easy
               </span>
               <br />
-              <span className="text-gray-900 dark:text-white">Votre Vie, Simplifiée</span>
+              <span className="text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl">L'informatique en toute simplicité</span>
             </h1>
             
-            <p ref={ctaRef} className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-              Découvrez la solution ultime pour gérer vos tâches quotidiennes avec élégance et facilité. Transformez votre façon de travailler et de vivre.
+            <p ref={ctaRef} className="text-base sm:text-lg md:text-lg text-gray-600 dark:text-gray-300 mb-6 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              Spécialisée dans le développement en sous-traitance des solutions Divalto ERP et Divalto Weavy, notre société accompagne les éditeurs et intégrateurs grâce à une expertise technique éprouvée.
+              Nous développons également des applications web et mobiles sur mesure, en mettant l’accent sur la qualité, la performance et l’adéquation aux enjeux métiers.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
               <Link
                 to="/contact"
-                className="bg-gradient-to-r from-teal-500 to-slate-900 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm border border-teal-400/20"
+                className="bg-gradient-to-r from-teal-500 to-slate-900 text-white px-6 py-3 sm:px-8 sm:py-3 rounded-lg font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm border border-teal-400/20 text-sm sm:text-base"
               >
                 Commencer
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
               <Link
                 to="/qui-sommes-nous"
-                className="border-2 border-teal-500 text-teal-600 dark:text-teal-400 dark:border-teal-400 px-8 py-4 rounded-xl font-semibold hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-all duration-300 backdrop-blur-sm"
+                className="border-2 border-teal-500 text-teal-600 dark:text-teal-400 dark:border-teal-400 px-6 py-3 sm:px-8 sm:py-3 rounded-lg font-semibold hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-all duration-300 backdrop-blur-sm text-sm sm:text-base"
               >
                 En Savoir Plus
               </Link>
@@ -78,7 +79,7 @@ function Home() {
               Pourquoi Choisir <span className="bg-gradient-to-r from-teal-600 to-slate-900 dark:from-teal-400 dark:to-teal-600 bg-clip-text text-transparent">Diva Easy</span>?
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Des fonctionnalités puissantes pensées pour simplifier votre vie et augmenter votre productivité
+              Choisir notre société, c’est bénéficier d’une expertise confirmée en développement Divalto et Weavy, d’un partenaire fiable en sous-traitance, d’un développement sur mesure de qualité, et d’un engagement fort sur les délais et la performance.
             </p>
           </div>
 
@@ -90,9 +91,9 @@ function Home() {
                 <div className="bg-gradient-to-br from-teal-50 to-teal-100/50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-teal-500/20 transition-all duration-300 dark:from-slate-700 dark:to-slate-600">
                   <Zap className="w-8 h-8 text-teal-600 dark:text-teal-400 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Ultra Rapide</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Respect des délais</h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm flex-grow">
-                  Découvrez des performances éclair qui suivent votre rythme et boostent votre productivité.
+                  nous traitons le respect des délais de développement comme un enjeu essentiel de qualité et de confiance.
                 </p>
               </div>
             </div>
@@ -104,9 +105,9 @@ function Home() {
                 <div className="bg-gradient-to-br from-teal-50 to-teal-100/50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-teal-500/20 transition-all duration-300 dark:from-slate-700 dark:to-slate-600">
                   <Shield className="w-8 h-8 text-teal-600 dark:text-teal-400 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Sécurisé & Fiable</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Confidentialité et sécurité</h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm flex-grow">
-                  Vos données sont protégées avec une sécurité de niveau entreprise et chiffrement de pointe.
+                  la protection des données et la confidentialité des projets sont au cœur de nos engagements.
                 </p>
               </div>
             </div>
@@ -120,7 +121,7 @@ function Home() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Collaboration</h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm flex-grow">
-                  Travaillez ensemble en temps réel avec vos collègues, peu importe la distance.
+                  nous privilégions une collaboration transparente et une grande capacité d’adaptation aux besoins et aux environnements de nos partenaires.
                 </p>
               </div>
             </div>
@@ -132,9 +133,9 @@ function Home() {
                 <div className="bg-gradient-to-br from-teal-50 to-teal-100/50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-teal-500/20 transition-all duration-300 dark:from-slate-700 dark:to-slate-600">
                   <Smartphone className="w-8 h-8 text-teal-600 dark:text-teal-400 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Mobile Ready</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Communication</h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm flex-grow">
-                  Accédez à votre travail de n'importe où sur tous vos appareils, n'importe quand.
+                  nous assurons une communication claire, régulière et transparente tout au long des projets.
                 </p>
               </div>
             </div>
@@ -146,16 +147,16 @@ function Home() {
       <section className="py-20 bg-gradient-to-r from-teal-50 to-slate-50 dark:from-slate-900 dark:to-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-            Prêt à Transformer Votre Vie?
+            Un partenaire technique pour vos projets informatiques
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-            Rejoignez des milliers d'utilisateurs qui ont déjà découvert la différence Diva Easy.
+            De nombreux partenaires nous font déjà confiance pour leurs développements, pourquoi pas vous ?
           </p>
           <Link
             to="/contact"
             className="inline-block bg-gradient-to-r from-teal-500 to-slate-900 text-white px-10 py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
           >
-            Commencez Votre Voyage Aujourd'hui
+            Parlons de vos besoins
           </Link>
         </div>
       </section>

@@ -11,6 +11,7 @@ import NosClients from './pages/NosClients';
 import Contact from './pages/Contact';
 import './index.css';
 
+
 // diva easy
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/qui-sommes-nous" element={<QuiSommes />} />
               <Route path="/nos-services" element={<NosServices />} />
-              <Route path="/nos-solutions" element={<NosSolutions />} />
+              {/* <Route path="/nos-solutions" element={<NosSolutions />} /> */}
               <Route path="/nos-clients" element={<NosClients />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>

@@ -18,7 +18,7 @@ function Footer() {
               </span>
             </Link>
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-              Simplifier votre vie numérique, un pas à la fois.
+              L’informatique en tout simplicité.
             </p>
           </div>
 
@@ -50,19 +50,25 @@ function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
                 <Mail className="w-5 h-5 text-teal-600 dark:text-teal-400 mt-0.5 flex-shrink-0" />
-                <a href="mailto:info@divaeasy.com" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium">
-                  info@divaeasy.com
+                <a href="mailto:contact@divaeasy.com" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium">
+                  contact@divaeasy.com
                 </a>
               </li>
               <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
                 <Phone className="w-5 h-5 text-teal-600 dark:text-teal-400 mt-0.5 flex-shrink-0" />
                 <a href="tel:+33123456789" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium">
-                  +33 1 23 45 67 89
+                  +33 6 68 29 80 60  
+                </a>
+              </li>
+              <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
+                <Phone className="w-5 h-5 text-teal-600 dark:text-teal-400 mt-0.5 flex-shrink-0" />
+                <a href="tel:+212666796154" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium">
+                  +212 6 66 79 61 54  
                 </a>
               </li>
               <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
                 <MapPin className="w-5 h-5 text-teal-600 dark:text-teal-400 mt-0.5 flex-shrink-0" />
-                <span className="font-medium">Paris, France</span>
+                <span className="font-medium">La Rochell , France  /  Marrakech, Maroc</span>
               </li>
             </ul>
           </div>
@@ -71,18 +77,18 @@ function Footer() {
           <div>
             <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-6">Nous Suivre</h4>
             <div className="flex gap-4">
-              <a href="#" className="bg-teal-100 dark:bg-slate-800 text-teal-600 dark:text-teal-400 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-slate-700 transition-all duration-300 hover:scale-110 transform">
+              {/* <a href="#" className="bg-teal-100 dark:bg-slate-800 text-teal-600 dark:text-teal-400 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-slate-700 transition-all duration-300 hover:scale-110 transform">
                 <Facebook className="w-5 h-5" />
               </a>
               <a href="#" className="bg-teal-100 dark:bg-slate-800 text-teal-600 dark:text-teal-400 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-slate-700 transition-all duration-300 hover:scale-110 transform">
                 <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="bg-teal-100 dark:bg-slate-800 text-teal-600 dark:text-teal-400 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-slate-700 transition-all duration-300 hover:scale-110 transform">
+              </a> */}
+              <a href="https://www.linkedin.com/company/88944873/admin/dashboard/" className="bg-teal-100 dark:bg-slate-800 text-teal-600 dark:text-teal-400 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-slate-700 transition-all duration-300 hover:scale-110 transform">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-teal-100 dark:bg-slate-800 text-teal-600 dark:text-teal-400 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-slate-700 transition-all duration-300 hover:scale-110 transform">
+              {/* <a href="#" className="bg-teal-100 dark:bg-slate-800 text-teal-600 dark:text-teal-400 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-slate-700 transition-all duration-300 hover:scale-110 transform">
                 <Instagram className="w-5 h-5" />
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

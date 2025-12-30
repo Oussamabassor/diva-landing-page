@@ -20,7 +20,7 @@ function Navbar() {
     { to: "/", label: "Accueil" },
     { to: "/qui-sommes-nous", label: "Qui Sommes Nous" },
     { to: "/nos-services", label: "Nos Services" },
-    { to: "/nos-solutions", label: "Nos Solutions" },
+    // { to: "/nos-solutions", label: "Nos Solutions" },
     { to: "/nos-clients", label: "Nos Clients" },
   ];
 
