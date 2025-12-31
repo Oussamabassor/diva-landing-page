@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
-import logo from '../assets/logo.png';
+import lightLogo from '../assets/light-logo.png';
+import darkLogo from '../assets/dark-logo.png';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +32,7 @@ function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center group flex-shrink-0" onClick={closeMenu}>
             <div className="relative h-12 w-12 flex items-center justify-center">
-              <img src={logo} alt="Diva Easy Logo" className="h-full w-full object-contain" />
+              <img src={isDark ? darkLogo : lightLogo} alt="Diva Easy Logo" className="h-full w-full object-contain" />
             </div>
             <span className="ml-3 text-xl font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300 whitespace-nowrap tracking-tight">
               Diva Easy

@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
-import logo from '../assets/logo.png';
+import { useTheme } from '../contexts/ThemeContext';
+import lightLogo from '../assets/light-logo.png';
+import darkLogo from '../assets/dark-logo.png';
 
 function Footer() {
+  const { isDark } = useTheme();
   return (
     <footer className="bg-gradient-to-b from-white via-teal-50 to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900 border-t border-teal-200/50 dark:border-teal-900/50 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -11,7 +14,7 @@ function Footer() {
           <div>
             <Link to="/" className="flex items-center gap-3 mb-6">
               <div className="relative h-12 w-12 flex items-center justify-center">
-                <img src={logo} alt="Diva Easy Logo" className="h-full w-full object-contain" />
+                <img src={isDark ? darkLogo : lightLogo} alt="Diva Easy Logo" className="h-full w-full object-contain" />
               </div>
               <span className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300 whitespace-nowrap tracking-tight">
                 Diva Easy
