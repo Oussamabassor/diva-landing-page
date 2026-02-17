@@ -28,44 +28,61 @@ function Contact() {
     e.preventDefault();
     setIsLoading(true);
 
-    try {
-      // Using backend API with PHPMailer + OVH SMTP
-      // For local dev: http://localhost:8000/api/send-email.php
-      // For production: https://your-domain.com/api/send-email.php
-      const apiEndpoint = import.meta.env.VITE_API_ENDPOINT || '/api/send-email.php';
-      
-      const response = await fetch(apiEndpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          subject: formData.subject,
-          message: formData.message,
-        }),
-      });
+    const apiEndpoint = import.meta.env.VITE_API_ENDPOINT || '/api/send-email.php';
+    const maxRetries = 3;
+    let lastError;
 
-      const data = await response.json();
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        // Using backend API with PHPMailer + OVH SMTP + Server-side retries
+        // For local dev: http://localhost:8000/api/send-email.php
+        // For production: https://your-domain.com/api/send-email.php
+        const response = await fetch(apiEndpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            subject: formData.subject,
+            message: formData.message,
+          }),
+        });
 
-      if (response.ok && data.success) {
-        console.log('Form submitted successfully:', formData);
-        setIsSubmitted(true);
-        setFormData({ name: '', email: '', company: '', subject: '', message: '' });
-        setTimeout(() => {
-          setIsSubmitted(false);
-        }, 3000);
-      } else {
-        throw new Error(data.error || 'Failed to send email');
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          console.log('Form submitted successfully:', formData);
+          setIsLoading(false);
+          setIsSubmitted(true);
+          setFormData({ name: '', email: '', company: '', subject: '', message: '' });
+          setTimeout(() => {
+            setIsSubmitted(false);
+          }, 3000);
+          return; // Success - exit function
+        } else {
+          throw new Error(data.error || 'Failed to send email');
+        }
+      } catch (error) {
+        lastError = error;
+        console.error(`Submission attempt ${attempt} failed:`, error);
+
+        // If this was the last attempt, throw error
+        if (attempt === maxRetries) {
+          break;
+        }
+
+        // Exponential backoff: 1s, 2s, 4s
+        const waitTime = Math.pow(2, attempt - 1) * 1000;
+        await new Promise(resolve => setTimeout(resolve, waitTime));
       }
-    } catch (error) {
-      console.error('Submission error:', error);
-      alert(`Erreur lors de l'envoi: ${error.message}`);
-    } finally {
-      setIsLoading(false);
     }
+
+    // All retries exhausted
+    setIsLoading(false);
+    alert(`Erreur lors de l'envoi: ${lastError?.message || 'Impossible de contacter le serveur. Une erreur technique s\'est produite. Veuillez réessayer dans quelques instants.'}`);
   };
 
   return (
