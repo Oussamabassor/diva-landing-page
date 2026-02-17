@@ -29,10 +29,12 @@ function Contact() {
     setIsLoading(true);
 
     try {
-      // Using Formspree to send email to contact@divaeasy.com
-      // First, sign up at https://formspree.io and create a form for contact@divaeasy.com
-      // Then replace 'YOUR_FORM_ID' with your actual Formspree form ID
-      const response = await fetch('https://formspree.io/f/mnjqywgg', {
+      // Using backend API with PHPMailer + OVH SMTP
+      // For local dev: http://localhost:8000/api/send-email.php
+      // For production: https://your-domain.com/api/send-email.php
+      const apiEndpoint = import.meta.env.VITE_API_ENDPOINT || '/api/send-email.php';
+      
+      const response = await fetch(apiEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,22 +48,21 @@ function Contact() {
         }),
       });
 
-      if (response.ok) {
-        console.log('Form submitted:', formData);
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        console.log('Form submitted successfully:', formData);
         setIsSubmitted(true);
         setFormData({ name: '', email: '', company: '', subject: '', message: '' });
         setTimeout(() => {
           setIsSubmitted(false);
         }, 3000);
+      } else {
+        throw new Error(data.error || 'Failed to send email');
       }
     } catch (error) {
       console.error('Submission error:', error);
-      // Still show success message - the form will be sent
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', company: '', subject: '', message: '' });
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 3000);
+      alert(`Erreur lors de l'envoi: ${error.message}`);
     } finally {
       setIsLoading(false);
     }

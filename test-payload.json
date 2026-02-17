@@ -1,0 +1,7 @@
+{
+  "name": "DIVA Test",
+  "email": "test@example.com",
+  "company": "Test Company",
+  "subject": "Testing Email API",
+  "message": "This is a test message for OVH SMTP"
+}
