@@ -13,7 +13,7 @@ if (file_exists(__DIR__ . '/../.env.php')) {
     putenv('SMTP_HOST=ssl0.ovh.net');
     putenv('SMTP_PORT=465');
     putenv('SMTP_SECURE=true');
-    putenv('SMTP_USER=git@divaeasy.com');
+    putenv('SMTP_USER=info@divaeasy.com');
     putenv('SMTP_PASS=your-app-password-here');
     putenv('CONTACT_EMAIL=contact@divaeasy.com');
 }
@@ -144,11 +144,11 @@ try {
             $mail->clearAddresses();
             $mail->clearReplyTos();
             
-            $mail->setFrom($smtp_user, 'DIVA Contact Form');
+            $mail->setFrom($smtp_user, 'Diva Easy');
             $mail->addAddress($contact_email);
             $mail->addReplyTo($email, $name);
             
-            $mail->Subject = "[DIVA] Nouveau message - {$subject}";
+            $mail->Subject = "[Diva Easy] Nouveau message - {$subject}";
             $mail->isHTML(true);
             
             $company_html = getCompanyEmailTemplate($name, $email, $company, $subject, $message);
@@ -160,14 +160,14 @@ try {
             // ============ EMAIL 2: TO USER (CONFIRMATION) ============
             $mail->clearAddresses();
             
-            $mail->setFrom($smtp_user, 'DIVA');
+            $mail->setFrom($smtp_user, 'Diva Easy');
             $mail->addAddress($email);
             
-            $mail->Subject = 'Confirmation de réception - DIVA';
+            $mail->Subject = 'Confirmation de réception - Diva Easy';
             
             $user_html = getUserEmailTemplate($name, $subject);
             $mail->Body = $user_html;
-            $mail->AltBody = "Bonjour {$name},\n\nNous avons bien reçu votre message et vous remercions de nous avoir contacté.\nUn membre de notre équipe vous répondra dans les meilleurs délais.\n\nCordialement,\nL'équipe DIVA";
+            $mail->AltBody = "Bonjour {$name},\n\nNous avons bien reçu votre message et vous remercions de nous avoir contacté.\nUn membre de notre équipe vous répondra dans les meilleurs délais.\n\nCordialement,\nL'équipe Diva Easy";
             
             $mail->send();
             
@@ -235,7 +235,7 @@ function getCompanyEmailTemplate($name, $email, $company, $subject, $message) {
         </div>
         
         <div style="background: #f3f4f6; padding: 20px; margin-top: 20px; border-radius: 8px; text-align: center; font-size: 12px; color: #6b7280;">
-            <p>Cet email a été envoyé depuis le formulaire de contact du site DIVA.</p>
+            <p>Cet email a été envoyé depuis le formulaire de contact du site Diva Easy.</p>
         </div>
     </div>
     HTML;
@@ -260,7 +260,7 @@ function getUserEmailTemplate($name, $subject) {
             </div>
             
             <p>Cordialement,<br>
-            <strong>L'équipe DIVA</strong></p>
+            <strong>L'équipe Diva Easy</strong></p>
         </div>
         
         <div style="background: #f3f4f6; padding: 20px; margin-top: 20px; border-radius: 8px; text-align: center; font-size: 12px; color: #6b7280;">
