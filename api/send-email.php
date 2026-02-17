@@ -65,6 +65,28 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit(json_encode(['error' => 'Invalid email format']));
 }
 
+// Prevent duplicate submissions: Generate deterministic request ID and check if already sent
+$request_hash = md5($email . '|' . $subject . '|' . $message);
+$request_file = __DIR__ . '/../.requests/' . $request_hash . '.txt';
+
+// Create requests directory if it doesn't exist
+if (!is_dir(__DIR__ . '/../.requests')) {
+    @mkdir(__DIR__ . '/../.requests', 0755, true);
+}
+
+// Check if this exact request was sent in the last 120 seconds
+if (file_exists($request_file)) {
+    $last_sent_time = filemtime($request_file);
+    if ((time() - $last_sent_time) < 120) {
+        // Return success to prevent duplicate retries showing as errors
+        http_response_code(200);
+        exit(json_encode([
+            'success' => true,
+            'message' => 'Emails sent successfully'
+        ]));
+    }
+}
+
 try {
     // Load PHPMailer
     require_once __DIR__ . '/../vendor/autoload.php';
@@ -166,6 +188,9 @@ try {
     }
     
     if ($email_sent) {
+        // Mark this request as sent to prevent duplicates
+        @file_put_contents($request_file, 'sent', LOCK_EX);
+        
         // Success response
         http_response_code(200);
         exit(json_encode([

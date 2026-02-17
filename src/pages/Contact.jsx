@@ -34,9 +34,10 @@ function Contact() {
 
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
       try {
-        // Using backend API with PHPMailer + OVH SMTP + Server-side retries
-        // For local dev: http://localhost:8000/api/send-email.php
-        // For production: https://your-domain.com/api/send-email.php
+        // Create abort controller for request timeout (45 seconds per attempt)
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 45000);
+
         const response = await fetch(apiEndpoint, {
           method: 'POST',
           headers: {
@@ -49,8 +50,10 @@ function Contact() {
             subject: formData.subject,
             message: formData.message,
           }),
+          signal: controller.signal,
         });
 
+        clearTimeout(timeoutId);
         const data = await response.json();
 
         if (response.ok && data.success) {
